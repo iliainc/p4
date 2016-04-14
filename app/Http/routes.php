@@ -15,8 +15,11 @@ Route::group(['middleware' => ['web']], function () {
         echo config('app.url');
     });
 
-
-
+    // Practice routes for CRUD DB operations
+    Route::get('/createbook', 'CrudController@getCreateBook');
+    Route::get('/readbook', 'CrudController@getReadBook');
+    Route::get('/updatebook', 'CrudController@getUpdateBook');
+    Route::get('/deletebook', 'CrudController@getDeleteBook');
 
     Route::get('/debug', function() {
 
