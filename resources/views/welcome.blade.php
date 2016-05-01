@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Developer's Best Friend
+    GoferToDo
 @stop
 
 @section('head')

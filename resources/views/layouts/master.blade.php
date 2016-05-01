@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        @yield('title', 'Dev Best Friend')
+        @yield('title', 'GoferToDo')
     </title>
 
     <meta charset='utf-8'>
@@ -18,12 +18,12 @@
 
     </header>
 
-    <h1 class="welcome">Developer's Best Friend</h1>
+    <h1 class="welcome">GoferToDo</h1>
+    <h3 class="welcome">Your To-Do Assistant</h3>
 
     <img
-    src='images/devbestfriend.jpg'
-    style='width:300px'
-    alt='Dev Best Friend'>
+    src='images/gofertodo.jpg'
+    alt='GoferToDo'>
 
     <section>
         @yield('content')
