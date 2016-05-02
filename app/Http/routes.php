@@ -7,19 +7,34 @@ Route::group(['middleware' => ['web']], function () {
 
 
     // First check whether user is logged in. If not logged in, redirect to homepage.
-    Route::get('/dashboard',function(){
-        if(Auth::guest()){
-            return view('welcome');
-        }
-        return view('dashboard.index');
+    // Route::get('/dashboard',function(){
+    //     if(Auth::guest()){
+    //         return view('welcome');
+    //     }
+    //     return view('dashboard.index');
+    // });
+
+    Route::group(['middleware' => 'auth'], function () {
+
+        Route::get('/dashboard', 'DashboardController@getIndex');
+
+        Route::get('/add', 'AddController@getIndex');
+        Route::get('/complete', 'CompleteController@getIndex');
+        Route::get('/incomplete', 'IncompleteController@getIndex');
+
+        Route::post('/add', 'AddController@postIndex');
+        // Route::post('/edit', 'EditController@postIndex');
+        // Route::post('/delete', 'DeleteController@postIndex');
+
     });
 
 
-    Route::post('/loremipsum', 'LoremIpsumController@postIndex');
-    Route::get('/loremipsum', 'LoremIpsumController@getIndex');
 
-    Route::post('/randomuser', 'RandomUserController@postIndex');
-    Route::get('/randomuser', 'RandomUserController@getIndex');
+
+
+
+
+
 
     Route::get('/practice', function() {
         echo config('app.url');

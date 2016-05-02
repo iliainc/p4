@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Badcow\LoremIpsum\Generator;
 
-class LoremIpsumController extends Controller
+class CompleteController extends Controller
 {
     public function getIndex()
     {
-        return view('loremipsum.index');
+        return view('complete.index');
     }
     public function postIndex(Request $request)
     {
@@ -30,6 +29,6 @@ class LoremIpsumController extends Controller
             dd("Error generating LoremIpsum text");
         }
 
-         return view('loremipsum.postindex')->with(['textLoremIpsum'=>$textLoremIpsum]);
+         return view('complete.postindex')->with(['textLoremIpsum'=>$textLoremIpsum]);
     }
 }

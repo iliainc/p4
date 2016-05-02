@@ -21,7 +21,7 @@
         @endforeach
             </ul>
         @endif
-        
+
     	<form method="POST">
     		<label for="users">How many users?</label>		<input maxlength="2" name="users" type="text" value="{{old('users')}}" id="users"> (Max: 99)
     		<br>

@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://p3.ilyanossov.me'),
+    'url' => env('APP_URL', 'http://p4.ilyanossov.me'),
 
     /*
     |--------------------------------------------------------------------------

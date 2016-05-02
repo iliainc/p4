@@ -7,11 +7,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 
-class RandomUserController extends Controller
+class IncompleteController extends Controller
 {
     public function getIndex()
     {
-        return view('randomuser.index');
+        return view('incomplete.index');
     }
     public function postIndex(Request $request)
     {
@@ -21,6 +21,6 @@ class RandomUserController extends Controller
 
         $data = $request->all();
 
-      return view('randomuser.postindex')->with(['data'=>$data]);
+      return view('incomplete.postindex')->with(['data'=>$data]);
     }
 }

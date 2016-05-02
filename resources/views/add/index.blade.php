@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Dashboard
+    Add To-Do Task
 @stop
 
 @section('head')
