@@ -23,12 +23,18 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    # Where should the user be redirected to if their login fails?
+    protected $loginPath = '/login';
+
+    # Where should the user be redirected to after logging out?
+    protected $redirectAfterLogout = '/';
+
     /**
      * Where to redirect users after login / registration.
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new authentication controller instance.
@@ -69,4 +75,5 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
 }

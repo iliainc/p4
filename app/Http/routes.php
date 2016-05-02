@@ -5,6 +5,16 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
+
+    // First check whether user is logged in. If not logged in, redirect to homepage.
+    Route::get('/dashboard',function(){
+        if(Auth::guest()){
+            return view('welcome');
+        }
+        return view('dashboard.index');
+    });
+
+
     Route::post('/loremipsum', 'LoremIpsumController@postIndex');
     Route::get('/loremipsum', 'LoremIpsumController@getIndex');
 
@@ -20,6 +30,21 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/readbook', 'CrudController@getReadBook');
     Route::get('/updatebook', 'CrudController@getUpdateBook');
     Route::get('/deletebook', 'CrudController@getDeleteBook');
+
+    # Show login form
+    Route::get('/login', 'Auth\AuthController@getLogin');
+
+    # Process login form
+    Route::post('/login', 'Auth\AuthController@postLogin');
+
+    # Process logout
+    Route::get('/logout', 'Auth\AuthController@logout');
+
+    # Show registration form
+    Route::get('/register', 'Auth\AuthController@getRegister');
+
+    # Process registration form
+    Route::post('/register', 'Auth\AuthController@postRegister');
 
     Route::get('/debug', function() {
 
@@ -53,6 +78,22 @@ Route::group(['middleware' => ['web']], function () {
         }
 
         echo '</pre>';
+
+    });
+
+    Route::get('/islogin', function() {
+
+        # You may access the authenticated user via the Auth facade
+        $user = Auth::user();
+
+        if($user) {
+            echo 'You are logged in.';
+            dump($user->toArray());
+        } else {
+            echo 'You are not logged in.';
+        }
+
+        return;
 
     });
 

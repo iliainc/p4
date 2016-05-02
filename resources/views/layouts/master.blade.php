@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        @yield('title', 'GoferToDo')
+        @yield('title', 'Gofer To-Do Tracker')
     </title>
 
     <meta charset='utf-8'>
@@ -18,12 +18,11 @@
 
     </header>
 
-    <h1 class="welcome">GoferToDo</h1>
-    <h3 class="welcome">Your To-Do Assistant</h3>
+    <h1 class="welcome">Gofer To-Do Tracker</h1>
 
     <img
     src='images/gofertodo.jpg'
-    alt='GoferToDo'>
+    alt='Gofer To-Do Tracker'>
 
     <section>
         @yield('content')
