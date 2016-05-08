@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Gofer To-Do Tracker
+    Gofer Sales To-Do Manager
 @stop
 
 @section('head')
