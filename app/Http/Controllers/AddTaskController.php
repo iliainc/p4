@@ -26,12 +26,10 @@ class AddTaskController extends Controller
           $this->validate($request,[
               'task' => 'required|min:3',
           ],$messages);
-          # Mass Assignment
           $data = $request->only('task','complete');
           $data['user_id'] = \Auth::id();
 
           $task = \App\Task::create($data);
-          # Save Tags
           $categories = ($request->categories) ?: [];
           $task->categories()->sync($categories);
           $task->save();

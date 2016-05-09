@@ -5,7 +5,7 @@
 @stop
 
 @section('head')
-    
+
 @stop
 
 @section('content')
@@ -36,7 +36,7 @@
                 <h2>Incomplete Tasks</h2>
                 <div class='incompleteTasks'>
                     @foreach($openTasks as $openTask)
-                        <h3>{{ $openTask->task }}</h3>
+                        <h3 class="strong">{{ $openTask->task }}</h3>
                         <div class='categories'>
                             @foreach($openTask->categories as $category)
                                 <h4>Categories:</h4>
@@ -45,11 +45,11 @@
                         </div>
                         <h5>Created at: {{ $openTask->created_at }}</h5>
                         <a href='/edit/{{$openTask->id}}'><i class='fa fa-pencil'></i> Edit</a><br>
-                        <a href='/edit/confirm-delete/{{$openTask->id}}'><i class='fa fa-trash'></i> Delete</a><br>
+                        <a href='/confirm-delete/{{$openTask->id}}'><i class='fa fa-trash'></i> Delete</a><br>
                     @endforeach
                 </div>
                 <h2>Complete Tasks</h2>
-                <div class='completeTasks'>
+                <div class='grayout'>
                     @foreach($completeTasks as $completeTask)
                         <h3>{{ $completeTask->task }}</h3>
                         <div class='categories'>
@@ -60,7 +60,7 @@
                         </div>
                         <h5>Created at: {{ $completeTask->created_at }}</h5><h5>Completed at: {{ $completeTask->updated_at }}</h5>
                         <a href='/edit/{{$completeTask->id}}'><i class='fa fa-pencil'></i> Edit</a><br>
-                        <a href='/edit/confirm-delete/{{$completeTask->id}}'><i class='fa fa-trash'></i> Delete</a><br>
+                        <a href='/confirm-delete/{{$completeTask->id}}'><i class='fa fa-trash'></i> Delete</a><br>
                     @endforeach
                 </div>
             </div>

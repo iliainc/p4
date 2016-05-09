@@ -50,3 +50,12 @@ section {
     margin-top: 20px;
     text-align: center;
 }
+
+.grayout {
+    opacity: 0.6;
+    filter: alpha(opacity = 60);
+}
+
+.strong {
+    font-weight: bold;
+}

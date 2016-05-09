@@ -18,9 +18,10 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/complete', 'CompleteController@getIndex');
         Route::get('/incomplete', 'IncompleteController@getIndex');
 
-        Route::get('/success', 'SuccessController@getIndex');
+        Route::get('/confirm-delete/{id?}', 'DeleteTaskController@getIndex');
+        Route::get('/delete/{id?}', 'DeleteTaskController@getDeleteTask');
 
-        // Route::post('/delete', 'DeleteController@postIndex');
+        Route::get('/success', 'SuccessController@getIndex');
 
     });
 
