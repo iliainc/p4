@@ -28,7 +28,8 @@
             <a class='btn btn-default' href="/add">Add To-Do Task</a>
         </p>
 
-
+        <p>
+            <h3>Add a Task:</h3>
        <form method='POST' action='/add'>
 
             {{ csrf_field() }}
@@ -52,16 +53,17 @@
 
             <div class='form-group'>
                 <fieldset>
-                    <legend>Categories:</legend>
-                    @foreach($categories_for_checkboxes as $category_id => $category_name)
+                    <h4>Select Categories:</h4>
+                    @foreach($categories_for_checkboxes as $category_id => $category_category)
                         <label>
                             <input
                                 type='checkbox'
                                 value='{{ $category_id }}'
                                 name='categories[]'
                             >
-                            {{$category_name}}
+                            {{$category_category}}
                         </label>
+                    </br>
                     @endforeach
                 </fieldset>
             </div>
@@ -87,6 +89,7 @@
             </div>
 
         </form>
+    </p>
 
     </div>
 @stop

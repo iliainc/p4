@@ -15,7 +15,7 @@ class Category extends Model
         $categories = \App\Category::orderBy('category','ASC')->get();
         $categories_for_checkboxes = [];
         foreach($categories as $category) {
-            $categories_for_checkboxes[$category['id']] = $category['name'];
+            $categories_for_checkboxes[$category['id']] = $category['category'];
         }
         return $categories_for_checkboxes;
     }
