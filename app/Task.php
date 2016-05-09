@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
 
-    public function users()
+    public function categories()
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->belongsToMany('App\Category')->withTimestamps();
     }
+
+
 }

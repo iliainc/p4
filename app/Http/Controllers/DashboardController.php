@@ -12,7 +12,9 @@ class DashboardController extends Controller
 {
     public function getIndex()
     {
-        return view('dashboard.index');
+        // $tasks = \App\Task::all();
+        $tasks = \App\Task::where('user_id','=',\Auth::id())->orderBy('id','DESC')->get();
+        return view('dashboard.index')->with('tasks',$tasks);
     }
     public function postIndex(Request $request)
     {

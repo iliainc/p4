@@ -31,6 +31,13 @@
             List of all to-do tasks here...  Also next to each task, Edit and Delete links
         </p>
 
+        <div class='task'>
+        @foreach($tasks as $task)
+            <h5>{{ $task->task }}</h5>
+            <img src='{{ $task->task }}'>
+        @endforeach
+        </div>
+
         <!-- @if(count($errors) > 0)
             <ul>
         @foreach ($errors->all() as $error)

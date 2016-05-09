@@ -14,6 +14,7 @@ class TasksTableSeeder extends Seeder
          DB::table('tasks')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'user_id' => '1',
             'task' => 'Create YouTube Video',
             'complete' => 0,
         ]);
@@ -21,6 +22,7 @@ class TasksTableSeeder extends Seeder
         DB::table('tasks')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'user_id' => '1',
             'task' => 'Update Readme',
             'complete' => 0,
         ]);
@@ -28,6 +30,7 @@ class TasksTableSeeder extends Seeder
         DB::table('tasks')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'user_id' => '2',
             'task' => 'Submit project link',
             'complete' => 0,
         ]);

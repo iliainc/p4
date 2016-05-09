@@ -6,10 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    public function tasks()
-    {
-        return $this->belongsToMany('App\Task')->withTimestamps();
-    }
+
     /**
      * The attributes that are mass assignable.
      *
