@@ -10,7 +10,11 @@ class AddController extends Controller
 {
     public function getIndex()
     {
-        return view('add.index');
+        $openTasks = \App\Task::where('user_id','=',\Auth::id())->where('complete','=','0')->orderBy('created_at','ASC')->get();
+        $completeTasks = \App\Task::where('user_id','=',\Auth::id())->where('complete','=','1')->orderBy('created_at','ASC')->get();
+
+        return view('add.index')->with('openTasks',$openTasks)->with('completeTasks',$completeTasks);
+        // return view('add.index');
     }
     public function getCreateBook()
     {

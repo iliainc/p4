@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Complete Tasks
+    Add To-Do Task
 @stop
 
 @section('head')
@@ -20,7 +20,7 @@
 
 
 
-    	<h1>Complete Tasks</h1>
+    	<h1>Add a To-Do Task</h1>
 
         <p>
             <a class='btn btn-default' href="/complete">View Complete Tasks</a>
@@ -28,13 +28,6 @@
             <a class='btn btn-default' href="/add">Add To-Do Task</a>
         </p>
 
-        <div class='task'>
-            <div class='completeTasks'>
-                @foreach($completeTasks as $completeTask)
-                    <h4>{{ $completeTask->task }}</h4><h5>Created at: {{ $completeTask->created_at }}</h5><h5>Completed at: {{ $completeTask->updated_at }}</h5>
-                @endforeach
-            </div>
-        </div>
 
     </div>
 @stop

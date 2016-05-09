@@ -22,40 +22,25 @@
     	<h1>Dashboard</h1>
 
         <p>
-            <input class='btn btn-default' href="/" value="View Complete Tasks">
-            <input class='btn btn-default' href="/" value="View Incomplete Tasks">
-            <input class='btn btn-default' href="/" value="Add To-Do Task">
-        </p>
-
-        <p>
-            List of all to-do tasks here...  Also next to each task, Edit and Delete links
+            <a class='btn btn-default' href="/complete">View Complete Tasks</a>
+            <a class='btn btn-default' href="/incomplete">View Incomplete Tasks</a>
+            <a class='btn btn-default' href="/add">Add To-Do Task</a>
         </p>
 
         <div class='task'>
-        @foreach($tasks as $task)
-            <h5>{{ $task->task }}</h5>
-            <img src='{{ $task->task }}'>
-        @endforeach
+            <h3>Incomplete Tasks</h3>
+            <div class='incompleteTasks'>
+                @foreach($openTasks as $openTask)
+                    <h4>{{ $openTask->task }}</h4><h5>Created at: {{ $openTask->created_at }}</h5>
+                @endforeach
+            </div>
+            <h3>Complete Tasks</h3>
+            <div class='completeTasks'>
+                @foreach($completeTasks as $completeTask)
+                    <h4>{{ $completeTask->task }}</h4><h5>Created at: {{ $completeTask->created_at }}</h5><h5>Completed at: {{ $completeTask->updated_at }}</h5>
+                @endforeach
+            </div>
         </div>
-
-        <!-- @if(count($errors) > 0)
-            <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-            </ul>
-        @endif
-
-    	<form method='POST'>
-
-    		<input name="_token" type="hidden" value="{{csrf_token()}}">
-    		<label for="paragraphs">Paragraphs</label>
-    		<input maxlength="2" name="paragraphs" type="text" value="{{old('paragraphs')}}" id="paragraphs"> (Max: 99)
-
-    		<br><br>
-
-    		<input class='btn btn-default' type="submit" value="Generate Lorem Ipsum">
-        </form> -->
 
     </div>
 @stop

@@ -5,24 +5,17 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
-
-    // First check whether user is logged in. If not logged in, redirect to homepage.
-    // Route::get('/dashboard',function(){
-    //     if(Auth::guest()){
-    //         return view('welcome');
-    //     }
-    //     return view('dashboard.index');
-    // });
-
     Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/dashboard', 'DashboardController@getIndex');
 
-        Route::get('/add', 'AddController@getIndex');
+        Route::get('/add', 'AddTaskController@getIndex');
         Route::get('/complete', 'CompleteController@getIndex');
         Route::get('/incomplete', 'IncompleteController@getIndex');
 
-        Route::post('/add', 'AddController@postIndex');
+        Route::get('/success', 'SuccessController@getIndex');
+
+        // Route::post('/add', 'AddController@postIndex');
         // Route::post('/edit', 'EditController@postIndex');
         // Route::post('/delete', 'DeleteController@postIndex');
 
@@ -41,10 +34,10 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     // Practice routes for CRUD DB operations
-    Route::get('/createbook', 'CrudController@getCreateBook');
-    Route::get('/readbook', 'CrudController@getReadBook');
-    Route::get('/updatebook', 'CrudController@getUpdateBook');
-    Route::get('/deletebook', 'CrudController@getDeleteBook');
+    // Route::get('/createbook', 'CrudController@getCreateBook');
+    // Route::get('/readbook', 'CrudController@getReadBook');
+    // Route::get('/updatebook', 'CrudController@getUpdateBook');
+    // Route::get('/deletebook', 'CrudController@getDeleteBook');
 
     # Show login form
     Route::get('/login', 'Auth\AuthController@getLogin');

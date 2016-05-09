@@ -1,36 +1,41 @@
 @extends('layouts.master')
 
 @section('title')
-    Random User Generator
+    Incomplete Tasks
 @stop
 
 @section('head')
 @stop
 
 @section('content')
-    <div class='container'>
+    <div class="container welcome">
 
-    	<a href='/'>&larr; Home</a>
+        <?php $user = Auth::user(); ?>
 
-    	<h1>User Generator</h1>
-
-        @if(count($errors) > 0)
-            <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-            </ul>
+        @if($user)
+            <a href='/logout'>&larr; Logout</a>
+            <a href='/dashboard'>  | Dashboard</a>
+        @else
         @endif
 
-    	<form method="POST">
-    		<label for="users">How many users?</label>		<input maxlength="2" name="users" type="text" value="{{old('users')}}" id="users"> (Max: 99)
-    		<br>
 
-    		<input name="email" id="email" type="checkbox">		<label for="email">Include Email?</label>		<br>
 
-    		<input name="_token" type="hidden" value="{{csrf_token()}}">
-    		<input type="submit" value="Generate Random User Info">
-        </form>
+    	<h1>Incomplete Tasks</h1>
+
+        <p>
+            <a class='btn btn-default' href="/complete">View Complete Tasks</a>
+            <a class='btn btn-default' href="/incomplete">View Incomplete Tasks</a>
+            <a class='btn btn-default' href="/add">Add To-Do Task</a>
+        </p>
+
+        <div class='task'>
+            <div class='incompleteTasks'>
+                @foreach($openTasks as $openTask)
+                    <h4>{{ $openTask->task }}</h4><h5>Created at: {{ $openTask->created_at }}</h5>
+                @endforeach
+            </div>
+        </div>
+
     </div>
 @stop
 

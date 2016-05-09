@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Add To-Do Task
+    Add a To-Do Task
 @stop
 
 @section('head')
@@ -13,42 +13,35 @@
         <?php $user = Auth::user(); ?>
 
         @if($user)
-           <a href='/logout'>&larr; Logout</a>
+            <a href='/logout'>&larr; Logout</a>
+            <a href='/dashboard'>  | Dashboard</a>
         @else
         @endif
 
 
 
-    	<h1>Dashboard</h1>
+    	<h1>Add a To-Do Task</h1>
 
         <p>
-            <input class='btn btn-default' href="/" value="View Complete Tasks">
-            <input class='btn btn-default' href="/" value="View Incomplete Tasks">
-            <input class='btn btn-default' href="/" value="Add To-Do Task">
+            <a class='btn btn-default' href="/complete">View Complete Tasks</a>
+            <a class='btn btn-default' href="/incomplete">View Incomplete Tasks</a>
+            <a class='btn btn-default' href="/add">Add To-Do Task</a>
         </p>
 
-        <p>
-            List of all to-do tasks here...  Also next to each task, Edit and Delete links
-        </p>
-
-        <!-- @if(count($errors) > 0)
-            <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-            </ul>
-        @endif
-
-    	<form method='POST'>
-
-    		<input name="_token" type="hidden" value="{{csrf_token()}}">
-    		<label for="paragraphs">Paragraphs</label>
-    		<input maxlength="2" name="paragraphs" type="text" value="{{old('paragraphs')}}" id="paragraphs"> (Max: 99)
-
-    		<br><br>
-
-    		<input class='btn btn-default' type="submit" value="Generate Lorem Ipsum">
-        </form> -->
+        <div class='add'>
+            <h3>Incomplete Tasks</h3>
+            <div class='incompleteTasks'>
+                <!-- @foreach($openTasks as $openTask)
+                    <h4>{{ $openTask->task }}</h4><h5>Created at: {{ $openTask->created_at }}</h5>
+                @endforeach -->
+            </div>
+            <h3>Complete Tasks</h3>
+            <div class='completeTasks'>
+                <!-- @foreach($completeTasks as $completeTask)
+                    <h4>{{ $completeTask->task }}</h4><h5>Created at: {{ $completeTask->created_at }}</h5><h5>Completed at: {{ $completeTask->updated_at }}</h5>
+                @endforeach -->
+            </div>
+        </div>
 
     </div>
 @stop

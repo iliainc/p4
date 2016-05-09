@@ -17,7 +17,7 @@ class TasksTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'user_id' => '1',
             'task' => 'Create YouTube Video',
-            'complete' => 0,
+            'complete' => 1,
         ]);
 
         DB::table('tasks')->insert([
