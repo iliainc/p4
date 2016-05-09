@@ -11,6 +11,7 @@ class TasksTableSeeder extends Seeder
      */
      public function run()
      {
+
          DB::table('tasks')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -34,5 +35,6 @@ class TasksTableSeeder extends Seeder
             'task' => 'Submit project link',
             'complete' => 0,
         ]);
+
      }
 }

@@ -11,6 +11,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('categories')->insert([
            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -28,5 +29,6 @@ class CategoriesTableSeeder extends Seeder
            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
            'category' => 'Client',
        ]);
+
     }
 }

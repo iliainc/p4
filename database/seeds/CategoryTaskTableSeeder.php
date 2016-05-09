@@ -35,5 +35,6 @@ class CategoryTaskTableSeeder extends Seeder
              }
 
          }
+
      }
 }
