@@ -29,6 +29,65 @@
         </p>
 
 
+       <form method='POST' action='/add'>
+
+            {{ csrf_field() }}
+
+            <div class='form-group'>
+               <label>To-Do Task:</label>
+                <input
+                    type='text'
+                    id='task'
+                    name='task'
+                    value='{{ old('task') }}'
+                >
+                <input
+                    type='hidden'
+                    id='complete'
+                    name='complete'
+                    value='0'
+                >
+               <div class='error'>{{ $errors->first('task') }}</div>
+            </div>
+
+            <div class='form-group'>
+                <fieldset>
+                    <legend>Categories:</legend>
+                    @foreach($categories_for_checkboxes as $category_id => $category_name)
+                        <label>
+                            <input
+                                type='checkbox'
+                                value='{{ $category_id }}'
+                                name='categories[]'
+                            >
+                            {{$category_name}}
+                        </label>
+                    @endforeach
+                </fieldset>
+            </div>
+
+            <div class='form-instructions'>
+                All fields are required
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Task</button>
+
+            {{--
+            <ul class=''>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            --}}
+
+            <div class='error'>
+                @if(count($errors) > 0)
+                    Please correct the errors above and try again.
+                @endif
+            </div>
+
+        </form>
+
     </div>
 @stop
 

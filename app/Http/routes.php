@@ -9,14 +9,16 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::get('/dashboard', 'DashboardController@getIndex');
 
-        Route::get('/add', 'AddTaskController@getIndex');
+        Route::get('/add', 'AddTaskController@getAddTask');
+        Route::post('/add', 'AddTaskController@postAddTask');
+
         Route::get('/complete', 'CompleteController@getIndex');
         Route::get('/incomplete', 'IncompleteController@getIndex');
 
         Route::get('/success', 'SuccessController@getIndex');
 
-        // Route::post('/add', 'AddController@postIndex');
-        // Route::post('/edit', 'EditController@postIndex');
+        // Route::get('/books/edit/{id?}', 'EditController@getEdit');
+        // Route::post('/books/edit', 'EditController@postEdit');
         // Route::post('/delete', 'DeleteController@postIndex');
 
     });
