@@ -19,24 +19,4 @@ class DashboardController extends Controller
         return view('dashboard.index')->with('openTasks',$openTasks)->with('completeTasks',$completeTasks);
     }
 
-
-
-    // public function postIndex(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         'paragraphs'=>'required|numeric|min:1'
-    //     ]);
-    //
-    //     $data = $request->all();
-    //
-    //     $gen = new Generator;
-    //
-    //     $textLoremIpsum = $gen->getParagraphs($data['paragraphs']);
-    //
-    //     if(!$textLoremIpsum) {
-    //         dd("Error generating LoremIpsum text");
-    //     }
-    //
-    //      return view('loremipsum.postindex')->with(['textLoremIpsum'=>$textLoremIpsum]);
-    // }
 }

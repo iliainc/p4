@@ -38,8 +38,8 @@
                     @foreach($openTasks as $openTask)
                         <h3 class="strong">{{ $openTask->task }}</h3>
                         <div class='categories'>
+                            <h4>Categories:</h4>
                             @foreach($openTask->categories as $category)
-                                <h4>Categories:</h4>
                                 <div class='category'>{{ $category->category }}</div>
                             @endforeach
                         </div>
