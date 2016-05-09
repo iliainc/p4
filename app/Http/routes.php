@@ -12,34 +12,18 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/add', 'AddTaskController@getAddTask');
         Route::post('/add', 'AddTaskController@postAddTask');
 
+        Route::get('/edit/{id?}', 'EditTaskController@getEditTask');
+        Route::post('/edit', 'EditTaskController@postEditTask');
+
         Route::get('/complete', 'CompleteController@getIndex');
         Route::get('/incomplete', 'IncompleteController@getIndex');
 
         Route::get('/success', 'SuccessController@getIndex');
 
-        // Route::get('/books/edit/{id?}', 'EditController@getEdit');
-        // Route::post('/books/edit', 'EditController@postEdit');
         // Route::post('/delete', 'DeleteController@postIndex');
 
     });
 
-
-
-
-
-
-
-
-
-    Route::get('/practice', function() {
-        echo config('app.url');
-    });
-
-    // Practice routes for CRUD DB operations
-    // Route::get('/createbook', 'CrudController@getCreateBook');
-    // Route::get('/readbook', 'CrudController@getReadBook');
-    // Route::get('/updatebook', 'CrudController@getUpdateBook');
-    // Route::get('/deletebook', 'CrudController@getDeleteBook');
 
     # Show login form
     Route::get('/login', 'Auth\AuthController@getLogin');
@@ -55,6 +39,16 @@ Route::group(['middleware' => ['web']], function () {
 
     # Process registration form
     Route::post('/register', 'Auth\AuthController@postRegister');
+
+
+
+
+
+
+
+    Route::get('/practice', function() {
+        echo config('app.url');
+    });
 
     Route::get('/debug', function() {
 
