@@ -50,8 +50,8 @@
                       <td>{{ $openTask->created_at }}</td>
                       <td>Not Complete</td>
                       <td>
-                           <a href='/edit/{{$openTask->id}}'><i class='fa fa-pencil'></i> Edit</a><br>
-                           <a href='/confirm-delete/{{$openTask->id}}'><i class='fa fa-trash'></i> Delete</a>
+                           <a class="html5lightbox" href='/edit/{{$openTask->id}}'><i class='fa fa-pencil'></i> Edit</a><br>
+                           <a class="html5lightbox" href='/confirm-delete/{{$openTask->id}}'><i class='fa fa-trash'></i> Delete</a>
                       </td>
                   </tr>
             @endforeach

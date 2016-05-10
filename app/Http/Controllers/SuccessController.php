@@ -12,4 +12,8 @@ class SuccessController extends Controller
     {
         return view('success.index');
     }
+    public function getAddIndex()
+    {
+        return view('success.successadd');
+    }
 }

@@ -22,6 +22,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/delete/{id?}', 'DeleteTaskController@getDeleteTask');
 
         Route::get('/success', 'SuccessController@getIndex');
+        Route::get('/successadd', 'SuccessController@getAddIndex');
 
     });
 

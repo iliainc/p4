@@ -50,7 +50,7 @@
                     <td>{{ $completeTask->created_at }}</td>
                     <td>{{ $completeTask->updated_at }}</td>
                     <td>
-                         <a href='/confirm-delete/{{$completeTask->id}}'><i class='fa fa-trash'></i> Delete</a>
+                         <a class="html5lightbox" href='/confirm-delete/{{$completeTask->id}}'><i class='fa fa-trash'></i> Delete</a>
                     </td>
                 </tr>
             @endforeach

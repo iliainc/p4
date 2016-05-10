@@ -34,7 +34,7 @@ class AddTaskController extends Controller
           $categories = ($request->categories) ?: [];
           $task->categories()->sync($categories);
           $task->save();
-          return redirect('/success');
+          return redirect('/successadd');
     }
 
 }

@@ -15,20 +15,12 @@
 <body>
 
     <header>
-        <h1 class="welcome">Gofer Sales To-Do Manager</h1>
 
-        <img
-            src='images/gofertodo.jpg'
-            alt='Gofer Sales To-Do Manager'>
     </header>
 
     <section>
         @yield('content')
     </section>
-
-    <footer class="welcome">
-        &copy; {{ date('Y') }} Ilya Nossov
-    </footer>
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
