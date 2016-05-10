@@ -7,7 +7,7 @@
 This project allows users, such as salespeople, to easily create and maintain a to-do list related to sales leads, opportunities, and clients.
 
 ## Demo
-<https://youtu.be/TODO>
+<https://youtu.be/SEJDXgck-uQ>
 
 ## Details for teaching team
 Login or registration is required. Both sample users have been seeded into the database for testing.
