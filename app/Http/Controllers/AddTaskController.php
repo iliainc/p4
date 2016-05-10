@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class AddTaskController extends Controller
 {
@@ -24,7 +24,8 @@ class AddTaskController extends Controller
         ];
 
           $this->validate($request,[
-              'task' => 'required|min:3',
+              'task' => 'required|min:3|alpha_num',
+              'categories' => 'required',
           ],$messages);
           $data = $request->only('task','complete');
           $data['user_id'] = \Auth::id();

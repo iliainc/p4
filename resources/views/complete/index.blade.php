@@ -13,14 +13,14 @@
         <?php $user = Auth::user(); ?>
 
         @if($user)
-            <a href='/logout'>&larr; Logout</a>
-            <a href='/dashboard'>  | Dashboard</a>
+            <a class='btn btn-default' href='/logout'>&larr; Logout</a>
+            <a class='btn btn-default' href='/dashboard'> Dashboard</a>
         @else
         @endif
 
 
 
-    	<h1>Complete Tasks</h1>
+    	<h1><dt>Complete Tasks</dt></h1>
 
         <p>
             <a class='btn btn-default' href="/complete">View Complete Tasks</a>
@@ -28,12 +28,34 @@
             <a class='btn btn-default' href="/add">Add To-Do Task</a>
         </p>
 
-        <div class='task'>
-            <div class='completeTasks'>
-                @foreach($completeTasks as $completeTask)
-                    <h4>{{ $completeTask->task }}</h4><h5>Created at: {{ $completeTask->created_at }}</h5><h5>Completed at: {{ $completeTask->updated_at }}</h5>
-                @endforeach
-            </div>
+
+        <h2 class="bg-primary">Complete Tasks</h2>
+            <table>
+              <tr>
+                <th>To-Do Task</th>
+                <th>Categories</th>
+                <th>Created At</th>
+                <th>Completed At</th>
+                <th>Delete Task</th>
+              </tr>
+        <div>
+            @foreach($completeTasks as $completeTask)
+                <tr class='grayout'>
+                    <td class="strong">{{ $completeTask->task }}</td>
+                    <td>
+                        @foreach($completeTask->categories as $category)
+                          <div>{{ $category->category }}</div>
+                        @endforeach
+                    </td>
+                    <td>{{ $completeTask->created_at }}</td>
+                    <td>{{ $completeTask->updated_at }}</td>
+                    <td>
+                         <a href='/confirm-delete/{{$completeTask->id}}'><i class='fa fa-trash'></i> Delete</a>
+                    </td>
+                </tr>
+            @endforeach
+
+            </table>
         </div>
 
     </div>

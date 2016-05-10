@@ -13,14 +13,14 @@
         <?php $user = Auth::user(); ?>
 
         @if($user)
-            <a href='/logout'>&larr; Logout</a>
-            <a href='/dashboard'>  | Dashboard</a>
+            <a class='btn btn-default' href='/logout'>&larr; Logout</a>
+            <a class='btn btn-default' href='/dashboard'> Dashboard</a>
         @else
         @endif
 
 
 
-    	<h1>Edit To-Do Task</h1>
+    	<h1><dt>Edit To-Do Task</dt></h1>
 
         <p>
             <a class='btn btn-default' href="/complete">View Complete Tasks</a>
@@ -49,14 +49,7 @@
                 </div>
 
                 <div class='form-group'>
-                   <label>Complete? (Enter 0 for Incomplete, 1 for Complete)</label>
-                   <input
-                       type='text'
-                       id='complete'
-                       name='complete'
-                       value='{{ $task->complete }}'
-                   >
-                   <div class='error'>{{ $errors->first('complete') }}</div>
+                    <input type="radio" name="complete" value="1"> Mark As Complete?<br>
                 </div>
 
                 <div class='form-group'>
@@ -66,6 +59,7 @@
                             <label>
                             <input
                                 type='checkbox'
+                                id='categories'
                                 value='{{ $category_id }}'
                                 name='categories[]'
                                 {{ (in_array($category_id,$categories_for_this_task)) ? 'CHECKED' : '' }}

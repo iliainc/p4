@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class EditTaskController extends Controller
 {
@@ -13,15 +13,9 @@ class EditTaskController extends Controller
         if(is_null($task)) {
             return redirect('/dashboard');
         }
-        if($task->user_id != \Auth::id()) {
-            return redirect('/login');
-        }
         $categories_for_checkboxes = \App\Category::getCategoriesForCheckboxes();
         $categories_for_this_task = $task->getCategoriesForThisTask();
-        return view('edittask.index')
-            ->with('task',$task)
-            ->with('categories_for_checkboxes',$categories_for_checkboxes)
-            ->with('categories_for_this_task',$categories_for_this_task);
+        return view('edittask.index')->with('task',$task)->with('categories_for_checkboxes',$categories_for_checkboxes)->with('categories_for_this_task',$categories_for_this_task);
     }
 
     public function postEditTask(Request $request) {
@@ -29,11 +23,14 @@ class EditTaskController extends Controller
             'not_in' => 'You have to choose a selection.',
         ];
         $this->validate($request,[
-            'task' => 'required|min:3'
+            'task' => 'required|min:3|alpha_num'
         ],$messages);
         $this->validate($request,[
-            'complete' => 'required|min:1|max:1'
+            'categories' => 'required'
         ],$messages);
+        // $this->validate($request,[
+        //     'complete' => 'required|numeric|min:0|max:1'
+        // ],$messages);
         $task = \App\Task::find($request->id);
         $task->task = $request->task;
         $task->complete = $request->complete;

@@ -27,7 +27,7 @@
         </p>
 
         @if(sizeof($openTasks) == 0)
-            You have not added any to-do tasks, you can <a href='/add'>add a task now to get started</a>.
+            <div class="bg-success">You have not added any to-do tasks, you can <a href='/add'>add a task now to get started</a>.</div>
         @else
 
             <div>

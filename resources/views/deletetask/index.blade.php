@@ -13,14 +13,14 @@
         <?php $user = Auth::user(); ?>
 
         @if($user)
-            <a href='/logout'>&larr; Logout</a>
-            <a href='/dashboard'>  | Dashboard</a>
+            <a class='btn btn-default' href='/logout'>&larr; Logout</a>
+            <a class='btn btn-default' href='/dashboard'> Dashboard</a>
         @else
         @endif
 
 
 
-    	<h1>Confirm Delete Task</h1>
+    	<h1><dt>Confirm Delete Task</dt></h1>
 
         <p>
             <a class='btn btn-default' href="/complete">View Complete Tasks</a>
