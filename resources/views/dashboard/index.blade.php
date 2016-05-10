@@ -14,13 +14,11 @@
         <?php $user = Auth::user(); ?>
 
         @if($user)
-           <a href='/logout'>&larr; Logout</a>
+           <a class='btn btn-default' href='/logout'>&larr; Logout</a>
         @else
         @endif
 
-
-
-    	<h1>Dashboard</h1>
+    	<h1><dt>Dashboard</dt></h1>
 
         <p>
             <a class='btn btn-default' href="/complete">View Complete Tasks</a>
@@ -32,36 +30,64 @@
             You have not added any to-do tasks, you can <a href='/add'>add a task now to get started</a>.
         @else
 
-            <div class='task'>
-                <h2>Incomplete Tasks</h2>
+            <div>
+                <h2 class="bg-primary">Incomplete Tasks</h2>
                 <div class='incompleteTasks'>
+                    <table>
+                          <tr>
+                            <th>To-Do Task</th>
+                            <th>Categories</th>
+                            <th>Created At</th>
+                            <th>Completed At</th>
+                            <th>Update Task</th>
+                          </tr>
+
                     @foreach($openTasks as $openTask)
-                        <h3 class="strong">{{ $openTask->task }}</h3>
-                        <div class='categories'>
-                            <h4>Categories:</h4>
-                            @foreach($openTask->categories as $category)
-                                <div class='category'>{{ $category->category }}</div>
-                            @endforeach
-                        </div>
-                        <h5>Created at: {{ $openTask->created_at }}</h5>
-                        <a href='/edit/{{$openTask->id}}'><i class='fa fa-pencil'></i> Edit</a><br>
-                        <a href='/confirm-delete/{{$openTask->id}}'><i class='fa fa-trash'></i> Delete</a><br>
+                          <tr>
+                              <td class="strong">{{ $openTask->task }}</td>
+                              <td>
+                                  @foreach($openTask->categories as $category)
+                                    <div>{{ $category->category }}</div>
+                                  @endforeach
+                              </td>
+                              <td>{{ $openTask->created_at }}</td>
+                              <td>Not Complete</td>
+                              <td>
+                                   <a href='/edit/{{$openTask->id}}'><i class='fa fa-pencil'></i> Edit</a><br>
+                                   <a href='/confirm-delete/{{$openTask->id}}'><i class='fa fa-trash'></i> Delete</a>
+                              </td>
+                          </tr>
                     @endforeach
+
+                    </table>
                 </div>
-                <h2>Complete Tasks</h2>
-                <div class='grayout'>
+                <h2 class="bg-primary">Complete Tasks</h2>
+                    <table>
+                      <tr>
+                        <th>To-Do Task</th>
+                        <th>Categories</th>
+                        <th>Created At</th>
+                        <th>Completed At</th>
+                        <th>Delete Task</th>
+                      </tr>
+                <div>
                     @foreach($completeTasks as $completeTask)
-                        <h3>{{ $completeTask->task }}</h3>
-                        <div class='categories'>
-                            <h4>Categories:</h4>
-                            @foreach($openTask->categories as $category)
-                                <div class='category'>{{ $category->category }}</div>
-                            @endforeach
-                        </div>
-                        <h5>Created at: {{ $completeTask->created_at }}</h5><h5>Completed at: {{ $completeTask->updated_at }}</h5>
-                        <a href='/edit/{{$completeTask->id}}'><i class='fa fa-pencil'></i> Edit</a><br>
-                        <a href='/confirm-delete/{{$completeTask->id}}'><i class='fa fa-trash'></i> Delete</a><br>
+                        <tr class='grayout'>
+                            <td class="strong">{{ $completeTask->task }}</td>
+                            <td>
+                                @foreach($completeTask->categories as $category)
+                                  <div>{{ $category->category }}</div>
+                                @endforeach
+                            </td>
+                            <td>{{ $completeTask->created_at }}</td>
+                            <td>{{ $completeTask->updated_at }}</td>
+                            <td>
+                                 <a href='/confirm-delete/{{$completeTask->id}}'><i class='fa fa-trash'></i> Delete</a>
+                            </td>
+                        </tr>
                     @endforeach
+
+                    </table>
                 </div>
             </div>
 

@@ -21,8 +21,8 @@
     <h1 class="welcome">Gofer Sales To-Do Manager</h1>
 
     <img
-    src='images/gofertodo.jpg'
-    alt='Gofer Sales To-Do Manager'>
+        src='images/gofertodo.jpg'
+        alt='Gofer Sales To-Do Manager'>
 
     <section>
         @yield('content')
