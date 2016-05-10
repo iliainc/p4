@@ -24,7 +24,7 @@ class AddTaskController extends Controller
         ];
 
           $this->validate($request,[
-              'task' => 'required|min:3|alpha_num',
+              'task' => 'required|min:3|string',
               'categories' => 'required',
           ],$messages);
           $data = $request->only('task','complete');

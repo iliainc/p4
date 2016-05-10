@@ -23,14 +23,11 @@ class EditTaskController extends Controller
             'not_in' => 'You have to choose a selection.',
         ];
         $this->validate($request,[
-            'task' => 'required|min:3|alpha_num'
+            'task' => 'required|min:3|string'
         ],$messages);
         $this->validate($request,[
             'categories' => 'required'
         ],$messages);
-        // $this->validate($request,[
-        //     'complete' => 'required|numeric|min:0|max:1'
-        // ],$messages);
         $task = \App\Task::find($request->id);
         $task->task = $request->task;
         $task->complete = $request->complete;
